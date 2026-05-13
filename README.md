@@ -106,3 +106,7 @@ This project maps directly to AI-900 objectives:
 
 - Azure AI Content Safety overview: https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview
 - Analyze Text REST API: https://learn.microsoft.com/en-us/rest/api/contentsafety/text-operations/analyze-text?view=rest-contentsafety-2024-09-01
+
+Images:
+<img width="1896" height="952" alt="Screenshot 2026-05-13 203154" src="https://github.com/user-attachments/assets/6eb641f0-bd29-4fc4-a67c-94e8daea88bf" />
+
