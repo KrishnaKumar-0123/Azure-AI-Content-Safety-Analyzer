@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Shield Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body class="theme-dark dashboard-body">
+    <div class="animated-bg"></div>
+    <div id="toastHost" class="toast-host"></div>
+    <aside class="sidebar">
+        <a class="brand" href="/"><span class="brand-mark"><i class="fa-solid fa-shield-halved"></i></span><span>AI Shield</span></a>
+        <a href="/" class="side-link"><i class="fa-solid fa-house"></i> Analyzer</a>
+        <a href="#overview" class="side-link active"><i class="fa-solid fa-chart-simple"></i> Overview</a>
+        <a href="#heatmap" class="side-link"><i class="fa-solid fa-border-all"></i> Heatmap</a>
+        <a href="#history" class="side-link"><i class="fa-solid fa-clock-rotate-left"></i> History</a>
+    </aside>
+    <main class="dashboard-main">
+        <header class="dashboard-header">
+            <div>
+                <p class="eyebrow">Admin Dashboard</p>
+                <h1>Moderation Command Center</h1>
+            </div>
+            <div class="button-row">
+                <button class="secondary-btn" id="downloadAnalytics"><i class="fa-solid fa-download"></i> Export JSON</button>
+                <button class="secondary-btn" id="exportPdf"><i class="fa-solid fa-file-pdf"></i> Report PDF</button>
+                <button class="icon-btn" id="themeToggle" title="Toggle theme"><i class="fa-solid fa-circle-half-stroke"></i></button>
+            </div>
+        </header>
+        <section id="overview" class="analytics-grid">
+            <div class="metric-card glass-card"><i class="fa-solid fa-file-shield"></i><span id="totalScans">0</span><p>Total scans</p></div>
+            <div class="metric-card glass-card"><i class="fa-solid fa-circle-check"></i><span id="safeScans">0</span><p>Safe scans</p></div>
+            <div class="metric-card glass-card"><i class="fa-solid fa-triangle-exclamation"></i><span id="unsafeScans">0</span><p>Unsafe scans</p></div>
+            <div class="metric-card glass-card"><i class="fa-solid fa-gauge-high"></i><span id="avgThreat">0%</span><p>Average threat</p></div>
+        </section>
+        <section class="chart-grid dashboard-charts">
+            <div class="glass-card chart-card"><h3>Verdict Mix</h3><canvas id="doughnutChart"></canvas></div>
+            <div class="glass-card chart-card"><h3>Severity Scores</h3><canvas id="barChart"></canvas></div>
+            <div class="glass-card chart-card"><h3>Threat Trend</h3><canvas id="lineChart"></canvas></div>
+            <div class="glass-card chart-card"><h3>Category Distribution</h3><canvas id="pieChart"></canvas></div>
+        </section>
+        <section id="heatmap" class="glass-card">
+            <div class="section-heading">
+                <p class="eyebrow">Risk Heatmap</p>
+                <h2>Category Intensity</h2>
+            </div>
+            <div id="riskHeatmap" class="heatmap"></div>
+        </section>
+        <section id="history" class="glass-card">
+            <div class="history-toolbar">
+                <div>
+                    <p class="eyebrow">Audit Trail</p>
+                    <h2>Saved Analysis History</h2>
+                </div>
+                <input id="historySearch" class="search-input" placeholder="Search history">
+            </div>
+            <div id="historyList" class="history-list"></div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
