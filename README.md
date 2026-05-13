@@ -102,13 +102,6 @@ This project maps directly to AI-900 objectives:
 - Show transparency through severity scores, audit history, and reporting.
 - Build a practical AI workflow that combines frontend UX, backend routing, API security, and cloud AI integration.
 
-## Security Notes
-
-- Do not commit `.env`.
-- For demos, browser localStorage is convenient, but production apps should use a server-side secret store such as Azure Key Vault.
-- The Flask backend validates endpoint format, text length, and missing credentials before making Azure requests.
-- The Azure API key is never stored by the Flask app.
-
 ## Official References
 
 - Azure AI Content Safety overview: https://learn.microsoft.com/en-us/azure/ai-services/content-safety/overview
